@@ -1,24 +1,16 @@
-const Express = require('express');
-const route = require('./routes/routes.js')
-/* const urlToImage = require('./assets/somethingWrong') */
+const express = require('express');
+const routes = require('./routes/routes')
+/* const urlToImage = require('./assets/somethingWrong.jpg') */
 const hostname = 'localhost';
 const port = 3000;
-const app = new Express();
+const app = new express();
+
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/index.html')
+    res.sendFile(__dirname + '/assets/somethingWrong.jpg')
 });
 
-/* app.use(Express.static('/assets')); */
-
-app.get('/hello', (req, res) => {
-    res.send('Hello');
-});
-
-app.get('/hello/:name', (req, res) => {
-    res.send(`Hello, ${req.params.name}`);
-});
-
+app.use('/', routes);
 
 //listen for request on port 3000, and as a callback function have the port listened on logged
 app.listen(3000, hostname, () => {
