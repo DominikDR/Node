@@ -8,7 +8,7 @@ const app = new Express();
 app.get('/', (req, res) => {
     res.sendFile(__dirname + '/index.html')
 });
-app.use('/', Express.static('assets'));
+
 /* app.use(Express.static('/assets')); */
 
 app.get('/hello', (req, res) => {
