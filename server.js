@@ -7,9 +7,10 @@ const app = new express();
 
 
 app.get('/', (req, res) => {
-    res.sendFile(__dirname + '/assets/somethingWrong.jpg')
+    res.sendFile(__dirname + '/index.html');
 });
 
+app.use(express.static('assets'));
 app.use('/', routes);
 
 //listen for request on port 3000, and as a callback function have the port listened on logged
