@@ -1,0 +1,10 @@
+.animal {
+    font-size: 20px;
+    text-align: left;
+}
+
+.animalList {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+}
