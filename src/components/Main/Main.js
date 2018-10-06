@@ -1,19 +1,16 @@
 import React from 'react';
-import Animals from './Animals';
-import Images from './Images';
+import Animals from '../Animals/Animals';
+import Images from '../Images/Images';
 
 import styles from './Main.css';
 
 class Main extends React.PureComponent {
-    constructor() {
-        super();
-        this.state = {
-            animals: [],
-        };
+    state = {
+        animals: [],
     };
 
     fetchAnimals () {
-        const url = "http://localhost:3000/animals?amount=5"
+        const url = "http://localhost:3000/animals"
         return fetch(url,{
             method: 'get',
         })
@@ -24,7 +21,6 @@ class Main extends React.PureComponent {
     }
     componentDidMount() {
         this.fetchAnimals().then(data => {
-            console.log("state", data)
             this.setState({ animals: data.animals })
         });
     }
@@ -32,13 +28,11 @@ class Main extends React.PureComponent {
     render() {
         return (
             <div className={styles.mainPage}>
-                <div className="container">
-                    <header className={styles.welcome}>
-                        <h1>Welcome on my weird site!</h1>
-                    </header>
-                    <Animals animals={ this.state.animals }/>
-                    <Images />
-                </div>
+                <header className={styles.welcome}>
+                    <h1>Welcome to my weird site!</h1>
+                </header>
+                <Animals animals={ this.state.animals }/>
+                <Images />
             </div>
         )
     }

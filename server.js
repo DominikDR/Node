@@ -1,5 +1,6 @@
 const express = require('express');
-const routes = require('./routes/routes');
+const animalsRoute = require('./routes/animals');
+const helloRoute = require('./routes/hello');
 /* const urlToImage = require('./assets/somethingWrong.jpg') */
 const hostname = 'localhost';
 const port = 3000;
@@ -11,7 +12,8 @@ app.get('/', (req, res) => {
 });
 
 app.use(express.static('dist'));
-app.use('/', routes);
+app.use('/animals', animalsRoute);
+app.use('/hello', helloRoute);
 
 //listen for request on port 3000, and as a callback function have the port listened on logged
 app.listen(3000, hostname, () => {
