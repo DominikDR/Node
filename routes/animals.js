@@ -1,6 +1,6 @@
 const express = require('express');
-const routes = express.Router();
 const sample = require('lodash/sample')
+const routes = express.Router();
 
 const species = ['elephant', 'cat', 'dog', 'snake', 'bee', 'bird'];
 
